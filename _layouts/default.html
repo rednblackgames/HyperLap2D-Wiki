@@ -23,6 +23,7 @@
 	</script>
 	<script async src='https://www.google-analytics.com/analytics.js'></script>
 	{% endif %}
+	<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 
 <body>
@@ -72,7 +73,7 @@
 
 	<section class="main">
 		<div class="page-header">
-			<h2>{% if page.category %}{{ page.category }}{% else %}{{ site.title }}{% endif %}</h2>
+			<h2>{% if page.category %}{{ page.category }}{% endif %}</h2>
 			<h3>{{ page.title }}</h3>
 		</div>
 		<article class="content">
