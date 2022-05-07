@@ -2,8 +2,9 @@
 # Site
 
 title: HyperLap2D Wiki
-url: "https://long-pig.cloudvent.net"
-baseurl:
+domain: rednblackgames.github.io
+url: "https://rednblackgames.github.io"
+baseurl: /HyperLap2D-Wiki/
 google_analytics_key:
 show_full_navigation: true
 
