@@ -1,38 +1,35 @@
 ---
-title: Welcome
+title: Create something awesome!
 ---
 
-This is the **Edition** template from [CloudCannon](http://cloudcannon.com/).
-**Edition** is perfect for documenting your product, application or service.
-It's populated with example content to give you some ideas.
+**[HyperLap2D](https://hyperlap2d.rednblack.games/)** is a general-purpose visual editor that helps you describe complex scenes with an easy to use drag and drop UI along with many useful tools. It doesn’t contain any business logic, just a pure description of all graphical assets.
 
-ChatApp is a fictional chat application for sending messages and media to others.
-Teams and friend groups would use ChatApp to stay up to date if it existed.
+Your graphic creations can easily come to life thanks to the Runtime libraries, which allow you to concentrate on the development of your video game without having to worry about managing an efficient rendering.
 
-> [Sign up](http://example.com/signup) or learn more about ChatApp at [example.com](http://example.com/).
+> Currently the development is mainly focused on the [libGDX](https://libgdx.com) framework, but HyperLap2D can be easily integrated into any other framework/engine.
 
 ### Getting Started
 
-Getting a message sent is quick and easy with ChatApp:
+HyperLap2D is developed on two main release channels: *Stable* and *Snapshots*.
 
-1. Sign up for an account
-2. Add your friends from their email addresses
-3. Type a message or send a photo
+1. Stable can be downloaded from official [website](https://hyperlap2d.rednblack.games/download) or from [GitHub Releases](https://github.com/rednblackgames/HyperLap2D/releases) page.
+2. Snapshots are builds generated automatically every time something is changed in official repository. Those can be downloaded from [GitHub Actions](https://github.com/rednblackgames/HyperLap2D/actions) page (A GitHub account is required). Those builds are useful to test latest changes or bug fix.
 
-> Feel free to send us a message at [feedback@example.com](mailto:feedback@example.com) with your feedback.
+> Runtimes and any extensions also have both release and snapshot channels. Follow rispective readme files for instructions.
 
 ### Features
 
-Explore more of ChatApp by reading about our features:
+**HyperLap2D** comes with a wide support for all common asstes in gaming industry:
 
-#### Media
-
-Send images, videos and other media to people. Sources include your computer, phone and Facebook.
-
-#### Contact Syncing
-
-Sync your contact list with your phone and/or Facebook contacts. Never lose your contacts between devices again!
-
-#### Devices
-
-ChatApp is available everywhere. Find out how to set it up on your all your devices.
+- Images and Sprite Animations
+- Vector Graphics with [TinyVG](https://tinyvg.tech/)
+- Physics World with Box2D
+- Dynamic Lights and Shadows
+- [Spine Animation](http://esotericsoftware.com/)
+- Particle Effects
+- [Talos VFX](https://talosvfx.com/)
+- Import, Export and Share your compositions
+- Actions Node Editor
+- Create custom Tiled Maps
+- Fully Extensible
+- Open export JSON output

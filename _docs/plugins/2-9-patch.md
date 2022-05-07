@@ -1,6 +1,6 @@
 ---
-title: Android
-category: Devices
+title: 9-Patch
+category: Plugins
 order: 2
 ---
 
@@ -11,5 +11,3 @@ To install ChatApp on your device:
 1. Open the Google Play Store
 2. Search for ChatApp
 3. Select **Install**
-
-![](//placehold.it/800x600)

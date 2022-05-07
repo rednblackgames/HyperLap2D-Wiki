@@ -1,6 +1,6 @@
 ---
-title: Phone
-category: Contact Syncing
+title: Creating New Project
+category: Editor
 order: 2
 ---
 
@@ -14,5 +14,3 @@ To sync your contacts:
 2. Select the **Sync Contacts** button
 3. Authorise ChatApp permissions
 4. Select some or all of your contacts
-
-![](//placehold.it/800x600)

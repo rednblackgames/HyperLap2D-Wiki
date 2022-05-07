@@ -1,6 +1,6 @@
 ---
-title: Facebook
-category: Contact Syncing
+title: Screen, Resolution and World
+category: Editor
 order: 1
 ---
 
@@ -13,5 +13,3 @@ To sync your contacts:
 1. Open your *User Settings*
 2. Select the **Connect Facebook** button
 3. Authorise ChatApp
-
-![](//placehold.it/800x600)

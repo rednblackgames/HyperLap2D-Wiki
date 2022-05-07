@@ -1,6 +1,6 @@
 ---
-title: iOS
-category: Devices
+title: Plugin System
+category: Plugins
 order: 1
 ---
 
@@ -11,5 +11,3 @@ To install ChatApp on your device:
 1. Open the App Store
 2. Search for ChatApp
 3. Select **Install**
-
-![](//placehold.it/800x600)

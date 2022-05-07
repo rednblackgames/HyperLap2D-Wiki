@@ -1,7 +1,7 @@
 ---
-title: Video
-category: Media
-order: 2
+title: Extensions
+category: libGDX Runtime
+order: 3
 ---
 
 Share video to your friends! Send videos from your computer, phone, camera or YouTube.
@@ -13,5 +13,3 @@ To share a video:
 3. Pick a video or paste a YouTube link
 
 > Videos can use up a lot of bandwidth so be aware of your mobile data.
-
-![](//placehold.it/800x600)
