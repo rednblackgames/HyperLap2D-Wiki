@@ -4,7 +4,6 @@ input::-ms-reveal {
 }
 
 body {
-	height: auto;
 	overflow-x: hidden;
 	background-color: $body-background-color;
 
@@ -463,4 +462,21 @@ img {
 
 .cms-editor-active .editor-link {
 	display: block;
+}
+
+footer {
+	border-color: #d0d7de;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 6px;
+	box-shadow: 0 1px 0 rgba(27,31,36,0.04) !important;
+	background-color: #f6f8fa !important;
+	font-size: 13px;
+	line-height: 1.75em;
+	padding: 10px !important;
+	margin-bottom: 20px !important;
+
+	p {
+		margin: 0;
+	}
 }
