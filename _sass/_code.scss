@@ -1,13 +1,13 @@
 pre, code, tt {
-	font-family: Inconsolata, Consolas, Courier, "Courier New", "Liberation Mono", monospace;
+	font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
 	font-size: 0.85em;
 	white-space: pre-wrap;
-	border-radius: 2px;
 	line-height: 1.4;
 	font-weight: 400;
-	background-color: #404145;
-	color: #FAFAFA;
-	border-radius: 2px;
+	background-color: rgba(175, 184, 193, 0.2);
+	color: rgb(36, 41, 47);
+	border-radius: 6px;
+	padding: .2em .4em;
 }
 
 pre {
