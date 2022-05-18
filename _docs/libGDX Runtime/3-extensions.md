@@ -4,7 +4,7 @@ category: libGDX Runtime
 order: 3
 ---
 
-Runtime for libGDX can be extended to supports new features or assets. Adding extensions in your code is streghtforward.
+Runtime for libGDX can be extended to supports new features or assets. Adding extensions in your code is straightforward.
 
 ## Spine 2D
 
