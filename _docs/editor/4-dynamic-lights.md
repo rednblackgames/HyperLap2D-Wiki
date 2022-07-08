@@ -4,7 +4,7 @@ category: Editor
 order: 4
 ---
 
-Lights are one of the most important effects in a game. They give the scene a unique atmosphere and make your games look beautiful.HyperLap2D supports both dynamic lights and shadows, including normal maps!
+Lights are one of the most important effects in a game. They give the scene a unique atmosphere and make your games look beautiful. HyperLap2D supports both dynamic lights and shadows, including normal maps!
 
 ## Basic Lights Setup
 
