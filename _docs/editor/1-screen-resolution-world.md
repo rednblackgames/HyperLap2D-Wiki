@@ -8,16 +8,26 @@ To create a new project, navigate to `File → New Project`.
 
 ![new-project]({{ site.baseurl }}/images/wiki/new-project.png)
 
-**Original Size** represent the base screen size where your assets are designed to. For example if resolution is set to 1920x1080 means that in a hypothetical canvas with that dimensions your assets has exactly the correct size and looks clear.
+### Original Size
+**Original Size** represents the base screen dimensions for which your assets are designed. For example, if the resolution is set to `1920x1080`, it means that in a canvas of those dimensions, your assets will maintain their intended size and clarity.
 
-Then Pixel per **World Unit (PPWU)** needs to be set. This value changes the coordinate scales but not resolution, it's an arbitrary value. A world unit is the metrics for HyperLap2D object's dimensions or coordinates, for example if the player asset is `100x200px` and `PPWU = 100` this means that in HyperLap2D you'll see that the player will has dimensions `1x2 World Unit`, while if `PPWU = 1` coordinates will match pixels.
+### Pixels per World Unit (PPWU)
+The **Pixels per World Unit (PPWU)** is an arbitrary value that defines the coordinate scale without affecting the resolution. A World Unit (WU) is the metric used for an object's dimensions and coordinates within HyperLap2D.
 
-> This is just a convention to simplify coordinates, but sometimes is necessary. For example, physics is needed through Box2D. Since it has some limitation on coordinates dimensions, an high PPWU is necessary in order to fit Box2D limits (usually between 80-100).
+* If a player asset is `100x200px` and `PPWU = 100`, the player's dimensions in the editor will be `1x2 World Units`.
+* If `PPWU = 1`, the coordinates will match the pixel values exactly.
 
-`PPWU` also reflects in ViewPort settings. If your base resolution is 1920x1080 and `PPWU = 60` the size of a `FitViewPort` or `ExtendedViewPort` should be `32x18`. Once understand the link between resolution/ppwu and world size, the libGDX wiki on [Viewports](https://libgdx.com/wiki/graphics/viewports){:target="_blank"} will helps.
+> While this is primarily a convention to simplify coordinates, it is often a technical requirement. For instance, **Box2D** physics has limitations regarding coordinate magnitudes; a high PPWU (typically between 80-100) is necessary to keep values within Box2D's optimal range.
+
+### Viewports and Scaling
+The `PPWU` directly affects Viewport settings. If your base resolution is `1920x1080` and `PPWU = 60`, the size of a `FitViewport` or `ExtendViewport` in your code should be `32x18` (1920/60 and 1080/60). Understanding the relationship between resolution, PPWU, and world size is essential—refer to the libGDX wiki on [Viewports](https://libgdx.com/wiki/graphics/viewports){:target="_blank"} for further details.
+
+---
 
 ## Multiple Resolutions
 
-HyperLap2D is able to manage automatically different resolutions. The default one `orig` is automatic generated and cannot be deleted. Additional resolution could be added in [Sandbox Toolbar]({{ site.baseurl }}{% link _docs/editor/2-editor-ui.md %}#sandbox-toolbar).
+HyperLap2D can automatically manage multiple resolutions. The default resolution, `orig`, is automatically generated and cannot be deleted. You can add additional resolutions via the [Sandbox Toolbar]({{ site.baseurl }}{% link _docs/editor/2-editor-ui.md %}#sandbox-toolbar).
 
-There is no restriction while create a new resolution, HyperLap2D will automatically scale all your assets and atlases. However, is highly recommended to only downscale your `orig` resolution. It's important to choose the right initial resolution during the project setup.
+While there are no strict restrictions when creating a new resolution, HyperLap2D will automatically scale all assets and atlases accordingly. 
+
+**Best Practice:** It is highly recommended to only **downscale** from your `orig` resolution. For this reason, choosing a sufficiently high initial resolution during project setup is critical for maintaining visual quality across different devices.

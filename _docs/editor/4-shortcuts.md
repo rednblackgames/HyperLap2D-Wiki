@@ -1,7 +1,7 @@
 ---
 title: Shortcuts
 category: Editor
-order: 3
+order: 4
 ---
 
 HyperLap2D supports many shortcuts to speed up your work, both for Windows/Linux and macOS:
