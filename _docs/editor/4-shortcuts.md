@@ -89,216 +89,253 @@ Custom key mapping can be switched in [Settings](Settings).
 Use this `default.keymap` file as reference:
 ```libgdx
 {
-   0:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      isControl:true,
-      keyCodes:[
+   "0":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "isControl":true,
+      "keyCodes":[
          42
-      ],
-      action:0
+      ]
    },
-   13:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      isControl:true,
-      keyCodes:[
+   "13":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "isControl":true,
+      "keyCodes":[
          20
       ],
-      action:13
+      "action":13
    },
-   5:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      isControl:true,
-      isAlt:true,
-      keyCodes:[
+   "26":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "keyCodes":[
+         142
+      ],
+      "action":26
+   },
+   "5":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "isControl":true,
+      "isAlt":true,
+      "keyCodes":[
          47
       ],
-      action:5
+      "action":5
    },
-   18:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      isControl:true,
-      keyCodes:[
+   "18":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "isControl":true,
+      "keyCodes":[
          54
       ],
-      action:18
+      "action":18
    },
-   10:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      isControl:true,
-      keyCodes:[
+   "10":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "isControl":true,
+      "keyCodes":[
          69,
          76
       ],
-      action:10
+      "action":10
    },
-   23:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      isControl:true,
-      keyCodes:[
-         11
+   "23":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "isControl":true,
+      "keyCodes":[
+         150
       ],
-      action:23
+      "action":23
    },
-   2:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      isControl:true,
-      keyCodes:[
+   "2":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "isControl":true,
+      "keyCodes":[
          47
       ],
-      action:2
+      "action":2
    },
-   15:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      isControl:true,
-      keyCodes:[
+   "15":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "isControl":true,
+      "keyCodes":[
          31
       ],
-      action:15
+      "action":15
    },
-   7:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      keyCodes:[
-         50,
-         131
+   "28":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "isControl":true,
+      "isShift":true,
+      "keyCodes":[
+         47
       ],
-      action:7
+      "action":28
    },
-   20:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      isControl:true,
-      keyCodes:[
+   "7":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "keyCodes":[
+         50
+      ],
+      "action":7
+   },
+   "20":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "isControl":true,
+      "keyCodes":[
          7,
          144
       ],
-      action:20
+      "action":20
    },
-   12:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      isControl:true,
-      keyCodes:[
+   "12":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "isControl":true,
+      "keyCodes":[
          19
       ],
-      action:12
+      "action":12
    },
-   25:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      keyCodes:[
-         67
+   "25":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "keyCodes":[
+         67,
+         112
       ],
-      action:25
+      "action":25
    },
-   4:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      isControl:true,
-      keyCodes:[
+   "4":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "isControl":true,
+      "keyCodes":[
          37
       ],
-      action:4
+      "action":4
    },
-   17:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      isControl:true,
-      keyCodes:[
+   "17":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "isControl":true,
+      "keyCodes":[
          50
       ],
-      action:17
+      "action":17
    },
-   9:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      keyCodes:[
+   "30":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "isAlt":true,
+      "keyCodes":[
+         41
+      ],
+      "action":30
+   },
+   "9":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "keyCodes":[
          62
       ],
-      action:9
+      "action":9
    },
-   22:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      isControl:true,
-      keyCodes:[
-         8
+   "22":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "isControl":true,
+      "keyCodes":[
+         152
       ],
-      action:22
+      "action":22
    },
-   1:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      isControl:true,
-      keyCodes:[
+   "1":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "isControl":true,
+      "keyCodes":[
          43
       ],
-      action:1
+      "action":1
    },
-   14:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      isControl:true,
-      keyCodes:[
+   "14":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "isControl":true,
+      "keyCodes":[
          29
       ],
-      action:14
+      "action":14
    },
-   6:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      isControl:true,
-      keyCodes:[
+   "27":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "keyCodes":[
+         140
+      ],
+      "action":27
+   },
+   "6":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "isControl":true,
+      "keyCodes":[
          45
       ],
-      action:6
+      "action":6
    },
-   19:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      isControl:true,
-      isShift:true,
-      keyCodes:[
+   "19":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "isControl":true,
+      "isShift":true,
+      "keyCodes":[
          54
       ],
-      action:19
+      "action":19
    },
-   11:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      isControl:true,
-      keyCodes:[
+   "11":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "isControl":true,
+      "keyCodes":[
          81,
          72
       ],
-      action:11
+      "action":11
    },
-   24:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      isControl:true,
-      keyCodes:[
-         10
+   "24":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "isControl":true,
+      "keyCodes":[
+         146
       ],
-      action:24
+      "action":24
    },
-   3:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      isControl:true,
-      keyCodes:[
+   "3":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "isControl":true,
+      "keyCodes":[
          33
       ],
-      action:3
+      "action":3
    },
-   16:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      isControl:true,
-      keyCodes:[
+   "16":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "isControl":true,
+      "keyCodes":[
          52
       ],
-      action:16
+      "action":16
    },
-   8:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      isControl:true,
-      keyCodes:[
+   "29":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "keyCodes":[
+         141
+      ],
+      "action":29
+   },
+   "8":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "isControl":true,
+      "keyCodes":[
          48
       ],
-      action:8
+      "action":8
    },
-   21:{
-      class:games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper,
-      isControl:true,
-      keyCodes:[
-         9
+   "21":{
+      "class":"games.rednblack.editor.utils.KeyBindingsLayout$KeyMapper",
+      "isControl":true,
+      "keyCodes":[
+         148
       ],
-      action:21
+      "action":21
    }
 }
 ```
