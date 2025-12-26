@@ -4,7 +4,7 @@ category: libGDX Runtime
 order: 1
 ---
 
-Runtime needs to be included into your `core` project.
+The Runtime needs to be included in your `core` project.
 
 ```groovy
 dependencies {
@@ -19,17 +19,17 @@ dependencies {
 }
 ```
 
-Use [compatibility table](https://github.com/rednblackgames/hyperlap2d-runtime-libgdx#support) to choose right version for each dependence.
+Use the [compatibility table](https://github.com/rednblackgames/hyperlap2d-runtime-libgdx#support) to choose the right version for each dependency.
 
-> Box2D and FreeType extensions needs additionals configuration for platform specific module
+> Box2D and FreeType extensions need additional configuration for platform specific modules
 
 ### Architecture
 
-HyperLap2D's libGDX runtime is based on Entity Component System (ECS) architecture using [Artemis-odb](https://github.com/junkdog/artemis-odb) library. If you are not familiar with this kind of design pattern, please consider to [learn more](https://en.wikipedia.org/wiki/Entity_component_system) before continue reading.
+HyperLap2D's libGDX runtime is based on the Entity Component System (ECS) architecture using the [Artemis-odb](https://github.com/junkdog/artemis-odb) library. If you are not familiar with this kind of design pattern, please consider [learning more](https://en.wikipedia.org/wiki/Entity_component_system) before reading further.
 
 ### SceneLoader
 
-A `SceneLoader` is the object that helps you to setup minimal working configuration for HyperLap2D to work. It parse `JSON` format to build ECS Engine, Entities and all required Components to render your scenes and assets.
+A `SceneLoader` is the object that helps you set up the minimal working configuration for HyperLap2D. It parses the `JSON` format to build the ECS Engine, Entities, and all required Components to render your scenes and assets.
 
 ```java
 //Create a viewport
@@ -48,11 +48,11 @@ mSceneLoader = new SceneLoader(configuration);
 mSceneLoader.loadScene("MainScene", mViewport);
 ```
 
-If don't specified, by default SceneLoader create a ScreenViewPort, in many cases this is not what you want, especially if you target Pixel per World Unit other than 1. You can measure the size of your world using [guidelines]({{ site.baseurl }}{% link _docs/editor/2-editor-ui.md %}#guidelines) in order to choose the best ViewPort for your scene.
+If not specified, by default the SceneLoader creates a ScreenViewport. In many cases this is not what you want, especially if you target a Pixel per World Unit other than 1. You can measure the size of your world using [guidelines]({{ site.baseurl }}{% link _docs/editor/2-editor-ui.md %}#guidelines) in order to choose the best Viewport for your scene.
 
 ### Loading with `AssetManager`
 
-libGDX's [AssetManager](https://libgdx.com/wiki/managing-your-assets){:target="_blank"} can be used to load HyperLap2D project.
+libGDX's [AssetManager](https://libgdx.com/wiki/managing-your-assets){:target="_blank"} can be used to load a HyperLap2D project.
 
 ```java
 mAssetManager = new AssetManager();
@@ -77,7 +77,7 @@ mSceneLoader = new SceneLoader(config);
 
 ### Rendering scene
 
-Runtime Engine already have all necessary Systems for rendering and basic entities manipulation. SceneLoader is a wrapper for all these features. This will make rendering very easy, just update ECS Engine.
+The Runtime Engine already has all necessary Systems for rendering and basic entity manipulation. `SceneLoader` is a wrapper for all these features. This will make rendering very easy; just update the ECS Engine.
 
 ```java
 @Override
@@ -94,13 +94,13 @@ public void render() {
 
 ### Retrieve Entities and navigate through composites
 
-Entities are represented as integer, any definition is provided by their `Components`. To help navigation and manipulation of elements `ItemWrapper` class can be used, that expose some useful methods. By default all objects are placed in a single `root` Composite.
+Entities are represented as integers; any definition is provided by their `Components`. To help navigation and manipulation of elements, the `ItemWrapper` class can be used, which exposes some useful methods. By default, all objects are placed in a single `root` Composite.
 
 ```java
 ItemWrapper root = new ItemWrapper(mSceneLoader.getRoot(), mSceneLoader.getEngine());
 ```
 
-Composites are group of entities. They can be retrieved with `ItemWrapper#getChild` method using object's unique identifier.
+Composites are groups of entities. They can be retrieved with the `ItemWrapper#getChild` method using the object's unique identifier.
 
 ```java
 ItemWrapper foo = root.getChild("foo");
@@ -110,16 +110,16 @@ ItemWrapper foo = root.getChild("foo");
 
 There are several default components created for each Entity.
 
-* `MainItemComponent` : This is present almost in any object and contains core information like entity type, identifier, unique Id, custom variables etc.
-* `TransformComponent`, `DimensionsComponent` `TintComponent` `ZIndexComponent` : These are present in almost any object too and contains information like position, dimension, origin point, rotation, z-index, color etc.
-* `NodeComponent` : Is present in any `Composite Item`, it stores children references as `Integer` objects.
-* `ViewportComponent` : Can be present only on a single Entity. It's the point where rendering pipeline starts from. Usually `root` composite has this component.
+* `MainItemComponent` : This is present in almost any object and contains core information like entity type, identifier, unique Id, custom variables etc.
+* `TransformComponent`, `DimensionsComponent`, `TintComponent`, `ZIndexComponent` : These are present in almost any object too and contain information like position, dimension, origin point, rotation, z-index, color etc.
+* `NodeComponent` : Is present in any `Composite Item`; it stores children references as `Integer` objects.
+* `ViewportComponent` : Can be present only on a single Entity. It's the point where the rendering pipeline starts from. Usually the `root` composite has this component.
 
-Specific components are created based on entity's type, for example `TextureRegionComponent`, `LabelComponent`, `ActionComponent` ,`LightObjectComponent`, `ParticleComponent`, `SpriteAnimationComponent`, `PhysicsBodyComponent` and much more. [Full list](https://github.com/rednblackgames/hyperlap2d-runtime-libgdx/tree/master/src/main/java/games/rednblack/editor/renderer/components)
+Specific components are created based on the entity's type, for example `TextureRegionComponent`, `LabelComponent`, `ActionComponent` ,`LightObjectComponent`, `ParticleComponent`, `SpriteAnimationComponent`, `PhysicsBodyComponent` and much more. [Full list](https://github.com/rednblackgames/hyperlap2d-runtime-libgdx/tree/master/src/main/java/games/rednblack/editor/renderer/components)
 
 ### Actions System
 
-HyperLap2D uses an Actions System similar to [libGDX's Scene2D actions](https://github.com/libgdx/libgdx/wiki/Scene2d#actions) but for ECS pattern. You can manually create actions in Java, or use [Node Graph Editor](https://github.com/rednblackgames/HyperLap2D/wiki/Actions).
+HyperLap2D uses an Actions System similar to [libGDX's Scene2D actions](https://github.com/libgdx/libgdx/wiki/Scene2d#actions) but for the ECS pattern. You can manually create actions in Java, or use the [Node Graph Editor](https://github.com/rednblackgames/HyperLap2D/wiki/Actions).
 
 ```java
 ActionData rotation = Actions.sequence(
@@ -176,6 +176,12 @@ int label = mSceneLoader.getEntityFactory().createEntity(root.getEntity(), label
 **Load Composite Item from HyperLap2D's Library**
 
 ```java
+int newEntity = mSceneLoader.loadFromLibrary("libraryName", "LayerName/Default", x, y);
+```
+
+Or if a more fine control on Composite creation is needed:
+
+```java
 CompositeItemVO sheepData = mSceneLoader.loadVoFromLibrary("sheep");
 sheepData.layerName = "Default";
 sheepData.x = 100;
@@ -217,7 +223,7 @@ public class PlayerScript extends BasicScript {
 }
 ```
 
-And a script can be easly attached to any entity with:
+And a script can be easily attached to any entity with:
  ```java
 ItemWrapper player = root.getChild("player");
 PlayerScript playerScript = player.addScript(PlayerScript.class);
@@ -225,52 +231,53 @@ PlayerScript playerScript = player.addScript(PlayerScript.class);
 
 Scripts can intercept physics collision events if the entity is a physic object.
 ```java
-public class PhysicsTestScript extends BasicScript implements PhysicsContact {
-	//No needs to init these fields because scripts are injected using artemis 
-	protected ComponentMapper<PhysicsBodyComponent> physicMapper;
-	protected com.artemis.World engine;
+public class PhysicsTestScript extends PhysicsBodyScript {
+    //No needs to init these fields because scripts are injected using artemis 
+    protected ComponentMapper<PhysicsBodyComponent> physicMapper;
+    protected com.artemis.World engine;
 
-	//This has to be initialized!
-	private PhysicsBodyComponent physicsBodyComponent;
+    //This has to be initialized!
+    private PhysicsBodyComponent physicsBodyComponent;
 
-	@Override
-	public void init (int item) {
-		super.init(item);
+    @Override
+    public void init (int item) {
+        super.init(item);
 
-		physicsBodyComponent = physicMapper.get(item);
-	}
+        //PhysicsBodyComponent#body is not null in `init` ONLY 
+        //for PhysicsBodyScript which wait box2d before initialization
+        physicsBodyComponent = physicMapper.get(item);
+    }
 
-	@Override
-	public void act (float delta) {
-		//body can be used here, because act method is called after PhysicsSystem,
-		//so all bodies should already be created
-		Body body = physicsBodyComponent.body;
-	}
+    @Override
+    public void act (float delta) {
+        //act method is called each frame
+        Body body = physicsBodyComponent.body;
+    }
 
-	@Override
-	public void beginContact (int contactEntity, Fixture contactFixture, Fixture ownFixture, Contact contact) {
+    @Override
+    public void beginContact (int contactEntity, Fixture contactFixture, Fixture ownFixture, Contact contact) {
 
-	}
+    }
 
-	@Override
-	public void endContact (int contactEntity, Fixture contactFixture, Fixture ownFixture, Contact contact) {
+    @Override
+    public void endContact (int contactEntity, Fixture contactFixture, Fixture ownFixture, Contact contact) {
 
-	}
+    }
 
-	@Override
-	public void preSolve (int contactEntity, Fixture contactFixture, Fixture ownFixture, Contact contact) {
+    @Override
+    public void preSolve (int contactEntity, Fixture contactFixture, Fixture ownFixture, Contact contact) {
 
-	}
+    }
 
-	@Override
-	public void postSolve (int contactEntity, Fixture contactFixture, Fixture ownFixture, Contact contact) {
+    @Override
+    public void postSolve (int contactEntity, Fixture contactFixture, Fixture ownFixture, Contact contact) {
 
-	}
+    }
 
-	@Override
-	public void dispose () {
+    @Override
+    public void dispose () {
 
-	}
+    }
 }
 ```
 
