@@ -329,7 +329,7 @@ public class MovementSystem extends IteratingSystem {
 
 #### Fixed Timestep and Interpolation
 
-For systems that require deterministic updates (like Physics or strict gameplay timers), you can use the `@FixedStep` annotation. However, to prevent visual stuttering when the rendering frame rate differs from the logic update rate, you should implement `InterpolatingSystem`.
+For systems that require deterministic updates (like Physics or strict gameplay timers), you can use the `@FixedTimestep` annotation. However, to prevent visual stuttering when the rendering frame rate differs from the logic update rate, you should implement `InterpolatingSystem`.
 
 ```java
 // Configures the system to run logic at a fixed time step
