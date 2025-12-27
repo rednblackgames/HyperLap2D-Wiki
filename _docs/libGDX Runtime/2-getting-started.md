@@ -1,7 +1,7 @@
 ---
 title: Getting Started
 category: libGDX Runtime
-order: 1
+order: 2
 ---
 
 The Runtime needs to be included in your `core` project.
@@ -280,6 +280,80 @@ public class PhysicsTestScript extends PhysicsBodyScript {
     }
 }
 ```
+
+### Systems
+
+HyperLap2D logic is driven by the **Artemis-odb** Entity Component System. Systems are where the logic lives; they iterate over entities or perform global actions. You will primarily use `IteratingSystem` (for processing entities) and `BaseSystem` (for global logic).
+
+#### Subscribing to Entities
+
+To define which entities a System should process, you use **Aspect Annotations** above the class definition. This creates an "Aspect" that filters entities based on their components.
+
+```java
+// Anotations can be combined.
+// The entity MUST have ComponentA AND ComponentB
+@All(ComponentA.class, ComponentB.class)
+// The entity MUST have EITHER ComponentC OR ComponentD
+@One(ComponentC.class, ComponentD.class)
+// The entity MUST NOT have ComponentE
+@Exclude(ComponentE.class)
+public class MyGameSystem extends IteratingSystem {
+    @Override
+    protected void process(int entityId) {
+        // Logic applied to matching entities
+    }
+}
+```
+
+#### Dependency Injection
+
+Artemis-odb automatically handles dependency injection for your Systems during initialization. By declaring fields for `ComponentMapper`s, other `System`s, or registered managers, the engine will populate them for you.
+
+```java
+@Wire(injectInherited = true) // Optional: allows injection into fields defined in superclasses
+public class MovementSystem extends IteratingSystem {
+    
+    // Automatically injected Mappers to retrieve components efficiently
+    protected ComponentMapper<TransformComponent> transformMapper;
+    
+    // Injects reference to another system
+    protected AnimationSystem animationSystem;
+
+    @Override
+    protected void process(int entityId) {
+         TransformComponent transform = transformMapper.get(entityId);
+         // Logic using mappers...
+    }
+}
+```
+
+#### Fixed Timestep and Interpolation
+
+For systems that require deterministic updates (like Physics or strict gameplay timers), you can use the `@FixedStep` annotation. However, to prevent visual stuttering when the rendering frame rate differs from the logic update rate, you should implement `InterpolatingSystem`.
+
+```java
+// Configures the system to run logic at a fixed time step
+@FixedTimestep
+public class CameraSystem extends IteratingSystem implements InterpolatingSystem {
+
+    @Override
+    protected void process(int entityId) {
+        // This code runs strictly at the fixed step rate
+        // Ideal for physics simulation, systems that depends from physics, or deterministic logic
+    }
+
+    @Override
+    public void interpolate(float alpha) {
+        // This method is called every frame (variable timestep)
+        // 'alpha' (0.0 to 1.0) represents the time accumulation between fixed steps.
+        
+        // Use this to smooth out visual positions:
+        // visualPosition = previousPosition + (currentPosition - previousPosition) * alpha;
+    }
+}
+```
+
+The fixed time step can be configured via `HyperLap2dInvocationStrategy.setFixedTimeStep(targetFps)`. This method should be invoked only once at startup and remain constant throughout execution. The fixed timestep will be set to 1/targetFps.
 
 ### Resource Management
 

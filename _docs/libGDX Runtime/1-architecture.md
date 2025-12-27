@@ -1,7 +1,7 @@
 ---
 title: Architecture & ECS
 category: libGDX Runtime
-order: 2
+order: 1
 ---
 
 HyperLap2D is built on top of **Artemis-odb**, a high-performance Entity Component System (ECS) framework. Unlike traditional Object-Oriented Programming (OOP) where you use inheritance (e.g., `class Player extends GameObject`), ECS uses **composition**.
