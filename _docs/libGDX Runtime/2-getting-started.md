@@ -106,8 +106,8 @@ config.addTagTransmuter("enemy_walker", EnemyComponent.class);
 ##### Other Configuration Methods
 
 * **`setCullingEnabled(boolean)`**: Toggles the `CullingSystem`. When `true` (default), entities outside the camera view are not rendered.
-* **`setResourceRetriever(IResourceRetriever)`**: Sets a custom resource manager strategy.
-* **`setExternalItemTypes(ExternalTypesConfiguration)`**: Used to register custom entity types supported by editor plugins.
+* **`setResourceRetriever (IResourceRetriever)`**: Sets a custom resource manager strategy.
+* **`setExternalItemTypes (ExternalTypesConfiguration)`**: Used to register custom entity types supported by editor plugins.
 * **`setExpectedEntityCount(int)`**: Optimizes the Artemis world by hinting the expected number of entities (default is 128).
 
 ### Loading with `AssetManager`
