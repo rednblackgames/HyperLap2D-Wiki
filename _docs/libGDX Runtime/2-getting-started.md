@@ -50,6 +50,66 @@ mSceneLoader.loadScene("MainScene", mViewport);
 
 If not specified, by default the SceneLoader creates a ScreenViewport. In many cases this is not what you want, especially if you target a Pixel per World Unit other than 1. You can measure the size of your world using [guidelines]({{ site.baseurl }}{% link _docs/editor/2-editor-ui.md %}#guidelines) in order to choose the best Viewport for your scene.
 
+#### SceneConfiguration
+
+The `SceneConfiguration` class is the configuration object used to initialize the `SceneLoader`. It allows you to customize the rendering pipeline (Batch size, Stencil, MSAA), inject external physics worlds, and manage the ECS systems before the engine starts.
+
+##### Rendering & FrameBuffer Settings
+
+You can customize the `Batch` used by the engine, enable the Stencil buffer, or configure Multi-Sample Anti-Aliasing (MSAA).
+
+**Note:** Using MSAA (samples > 0) usually requires a GLES 3.0+ context.
+
+```java
+// 1. Default setup (Batch size: 2000, No Stencil, No MSAA)
+SceneConfiguration config = new SceneConfiguration();
+
+// 2. Custom Batch size
+// Useful to reduce draw calls in scenes with many sprites
+SceneConfiguration config = new SceneConfiguration(4000);
+
+// 3. Advanced Setup: Custom Batch, Stencil enabled, and 4x MSAA samples
+SceneConfiguration config = new SceneConfiguration(new TextureArrayCpuPolygonSpriteBatch(), true, 4);
+```
+
+##### Systems Management
+
+By default, `SceneConfiguration` adds all the standard HyperLap2D systems. You can inject your own Artemis-odb systems or replace existing ones.
+
+```java
+// Add a custom logic system
+config.addSystem(new PlayerControllerSystem());
+
+// Disable or Replace a built-in system
+// If you add a system of the same class as a built-in one, it replaces the original.
+config.removeSystem(LightSystem.class);
+```
+
+##### Physics & Lighting Injection
+
+If your game architecture manages the Box2D `World` or Box2DLights `RayHandler` externally (outside of the SceneLoader), you must inject them here. If not set, `SceneLoader` will create new instances automatically.
+
+```java
+config.setWorld(myGameWorld);
+config.setRayHandler(myRayHandler);
+```
+
+##### Tag Transmuters
+
+Tag Transmuters allow you to automatically attach specific Components to entities based on the **Tag** assigned in the Editor. This is useful for binding game logic to entities without manual parsing.
+
+```java
+// Automatically adds 'EnemyComponent' to any entity tagged "enemy_walker"
+config.addTagTransmuter("enemy_walker", EnemyComponent.class);
+```
+
+##### Other Configuration Methods
+
+* **`setCullingEnabled(boolean)`**: Toggles the `CullingSystem`. When `true` (default), entities outside the camera view are not rendered.
+* **`setResourceRetriever(IResourceRetriever)`**: Sets a custom resource manager strategy.
+* **`setExternalItemTypes(ExternalTypesConfiguration)`**: Used to register custom entity types supported by editor plugins.
+* **`setExpectedEntityCount(int)`**: Optimizes the Artemis world by hinting the expected number of entities (default is 128).
+
 ### Loading with `AssetManager`
 
 libGDX's [AssetManager](https://libgdx.com/wiki/managing-your-assets){:target="_blank"} can be used to load a HyperLap2D project.
