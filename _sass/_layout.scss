@@ -76,7 +76,7 @@ body {
 
 header {
 	$emblem-size: 35px;
-	$emblem-vertical-padding: calc(($nav-header-height - $emblem-size) / 2);
+	$emblem-vertical-padding: ($nav-header-height - $emblem-size) / 2;
 	$emblem-horizontal-padding: $space;
 
 	position: absolute;
@@ -165,7 +165,7 @@ $nav-image: $baseurl + "/images/menu.svg";
 
 	h3::before {
 		content: "";
-		@extend hr !optional;
+		@extend hr;
 		margin: 60px 0;
 	}
 }
@@ -223,7 +223,7 @@ header>form {
 }
 
 nav>ul {
-	padding: calc($space / 2) 0;
+	padding: $space / 2 0;
 
 	&+ul {
 		border-top: 1px solid rgba(0, 0, 0, 0.075);
@@ -248,7 +248,7 @@ nav>ul {
 		color: #666;
 		text-decoration: none;
 		font-size: 1.4rem;
-		padding: calc($space / 2) 0 calc($space / 2) $space * 2;
+		padding: $space / 2 0 $space / 2 $space * 2;
 		display: block;
 	}
 
