@@ -355,6 +355,17 @@ public class CameraSystem extends IteratingSystem implements InterpolatingSystem
 
 The fixed time step can be configured via `HyperLap2dInvocationStrategy.setFixedTimeStep(targetFps)`. This method should be invoked only once at startup and remain constant throughout execution. The fixed timestep will be set to 1/targetFps.
 
+#### Engine Time Scaling
+
+HyperLap2D provides built-in support for time scaling to create slow-motion or fast-forward effects. Scaling time acts globally and affects all systems, including physics simulation.
+
+To change the engine's time scale, use `HyperLap2dInvocationStrategy#setTimeScale`.
+
+**Examples:**
+* `1`: Normal speed.
+* `2`: 2x speed (double velocity).
+* `0.5`: 0.5x speed (half time).
+
 ### Resource Management
 
 Each asset (image, font, etc.) needs to be loaded and unloaded according to game needs. This can be done using `IResourceRetriever` interface and pass it to `SceneConfiguration`.
