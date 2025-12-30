@@ -1,3 +1,8 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+$baseurl: "" !default;
+
 input::-ms-clear,
 input::-ms-reveal {
 	display: none !important;
@@ -11,7 +16,7 @@ body {
 		overflow: hidden;
 
 		nav,
-		header > form {
+		header>form {
 			display: block;
 		}
 
@@ -76,7 +81,7 @@ body {
 
 header {
 	$emblem-size: 35px;
-	$emblem-vertical-padding: ($nav-header-height - $emblem-size) / 2;
+	$emblem-vertical-padding: calc(($nav-header-height - $emblem-size) / 2);
 	$emblem-horizontal-padding: $space;
 
 	position: absolute;
@@ -104,56 +109,58 @@ header {
 		letter-spacing: 0;
 		font-weight: 600;
 		text-indent: 0;
-		@include display-flex();
-		@include flex-direction(row);
-		@include align-items(center);
-		border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+		@include display-flex(
+	);
+	@include flex-direction(row);
+	@include align-items(center);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.075);
 
-		img {
-			height: $emblem-size;
-			width: $emblem-size;
-			margin-right: $space - 5;
-		}
+	img {
+		height: $emblem-size;
+		width: $emblem-size;
+		margin-right: $space - 5;
 	}
+}
 
 $nav-image: $baseurl + "/images/menu.svg";
+
+.open-nav {
+	background-image: url($nav-image);
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: $emblem-size;
+	height: $emblem-size;
+	border: 0;
+	position: absolute;
+	top: $emblem-vertical-padding;
+	right: $emblem-horizontal-padding;
+	border-radius: 2px;
+
+	&:focus {
+		outline: none;
+		background-color: rgba(0, 0, 0, 0.05);
+	}
+
+	&:hover {
+		background-color: rgba(0, 0, 0, 0.1);
+	}
+}
+
+@media (min-width: $mobile-break) {
+	background-color: transparent;
+	width: $nav-width;
+	right: auto;
+	bottom: auto;
+
 	.open-nav {
-		background-image: url($nav-image);
-		background-color: transparent;
-		background-repeat: no-repeat;
-		background-size: 100%;
-		width: $emblem-size;
-		height: $emblem-size;
-		border: 0;
-		position: absolute;
-		top: $emblem-vertical-padding;
-		right: $emblem-horizontal-padding;
-		border-radius: 2px;
-
-		&:focus {
-			outline: none;
-			background-color: rgba(0, 0, 0, 0.05);
-		}
-
-		&:hover {
-			background-color: rgba(0, 0, 0, 0.1);
-		}
+		display: none;
 	}
 
-	@media (min-width: $mobile-break) {
-		background-color: transparent;
-		width: $nav-width;
-		right: auto;
-		bottom: auto;
-
-		.open-nav {
-			display: none;
-		}
-
-		h1 {
-			box-shadow: inset -10px 0 10px -10px rgba(0, 0, 0, 0.1);
-		}
+	h1 {
+		box-shadow: inset -10px 0 10px -10px rgba(0, 0, 0, 0.1);
 	}
+}
 }
 
 .content {
@@ -163,7 +170,7 @@ $nav-image: $baseurl + "/images/menu.svg";
 
 	h3::before {
 		content: "";
-		@extend hr;
+		@extend hr !optional;
 		margin: 60px 0;
 	}
 }
@@ -176,6 +183,7 @@ $nav-image: $baseurl + "/images/menu.svg";
 }
 
 .page-header {
+
 	h2,
 	h3 {
 		margin: 0;
@@ -211,7 +219,7 @@ $nav-image: $baseurl + "/images/menu.svg";
 }
 
 nav,
-header > form {
+header>form {
 	display: none;
 
 	@media (min-width: $mobile-break) {
@@ -219,10 +227,10 @@ header > form {
 	}
 }
 
-nav > ul {
-	padding: $space / 2 0;
+nav>ul {
+	padding: calc($space / 2) 0;
 
-	& + ul {
+	&+ul {
 		border-top: 1px solid rgba(0, 0, 0, 0.075);
 	}
 }
@@ -233,29 +241,29 @@ nav > ul {
 	line-height: 1;
 	margin: 0;
 
-	nav:not(.full-navigation) & > ul {
+	nav:not(.full-navigation) &>ul {
 		display: none;
 	}
 
-	nav:not(.full-navigation) &.current > ul {
+	nav:not(.full-navigation) &.current>ul {
 		display: block;
 	}
 
-	> a {
+	>a {
 		color: #666;
 		text-decoration: none;
 		font-size: 1.4rem;
-		padding: $space / 2 0 $space / 2 $space * 2;
+		padding: calc($space / 2) 0 calc($space / 2) $space * 2;
 		display: block;
 	}
 
-	&.current > a,
-	> a:active,
-	> a:hover {
+	&.current>a,
+	>a:active,
+	>a:hover {
 		color: #111;
 	}
 
-	&.top-level > a {
+	&.top-level>a {
 		line-height: 1.5;
 		font-weight: 600;
 		padding-left: $space;
@@ -286,7 +294,7 @@ nav > ul {
 			margin-right: 20px;
 		}
 
-		p + .highlight > pre {
+		p+.highlight>pre {
 			margin-bottom: 0;
 		}
 
@@ -302,7 +310,7 @@ nav > ul {
 	margin-right: 0;
 }
 
-h3 + .warning {
+h3+.warning {
 	margin-top: 1.75em;
 }
 
@@ -322,7 +330,6 @@ h4 svg {
 	margin-right: 6px;
 	position: relative;
 	top: -2px;
-	fill: #2E2E2E;
 	height: 23px;
 }
 
@@ -366,6 +373,7 @@ h4 a {
 
 #search-input {
 	-webkit-appearance: none;
+	appearance: none;
 	display: block;
 	margin: 0;
 	padding: 10px 20px 10px 15px;
@@ -385,8 +393,9 @@ h4 a {
 }
 
 .changelog {
+
 	&,
-	> div {
+	>div {
 		margin: 0;
 		padding: 0;
 		list-style: none;
@@ -442,7 +451,7 @@ footer {
 	border-style: solid;
 	border-width: 1px;
 	border-radius: 6px;
-	box-shadow: 0 1px 0 rgba(27,31,36,0.04) !important;
+	box-shadow: 0 1px 0 rgba(27, 31, 36, 0.04) !important;
 	background-color: #f6f8fa !important;
 	font-size: 13px;
 	line-height: 1.75em;
@@ -457,4 +466,63 @@ footer {
 lottie-player {
 	margin-left: auto;
 	margin-right: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  position: relative;
+}
+
+.anchor-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 0;
+  vertical-align: middle;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+h1:hover .anchor-btn,
+h2:hover .anchor-btn,
+h3:hover .anchor-btn,
+h4:hover .anchor-btn,
+h5:hover .anchor-btn,
+h6:hover .anchor-btn,
+.anchor-btn:focus {
+  opacity: 1;
+}
+
+/* Stile SVG */
+.anchor-btn svg {
+  width: 0.8em;
+  height: 0.8em;
+  display: block;
+}
+
+.anchor-btn:active {
+  color: #000;
+  transform: scale(0.95);
+}
+
+.anchor-btn::after {
+  content: "Copied!";
+  position: absolute;
+  background: #333;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+  font-weight: normal;
+}
+
+.anchor-btn.show-tooltip::after {
+  opacity: 1;
 }

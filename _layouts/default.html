@@ -9,7 +9,8 @@
 	{% seo %}
 	{% feed_meta %}
 
-	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700">
+	<link rel="stylesheet"
+		href="//fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700">
 	<link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 	<link rel="apple-touch-icon" href="{{ site.baseurl }}/apple-touch-icon.png">
@@ -31,7 +32,8 @@
 <body>
 	<header>
 		<h1>
-			<a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/images/emblem.svg" width="40" height="40" alt="{{ site.title }} logo"></a>
+			<a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/images/emblem.svg" width="40" height="40"
+					alt="{{ site.title }} logo"></a>
 			{{ site.title }}
 			<button type="button" class="open-nav" id="open-nav"></button>
 		</h1>
@@ -57,7 +59,8 @@
 					<a href="{{ site.baseurl }}{{ items.first.url }}">{{ group.name }}</a>
 					<ul>
 						{% for item in items %}
-						<li class="nav-item {% if item.url == page.url %}current{% endif %}"><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a></li>
+						<li class="nav-item {% if item.url == page.url %}current{% endif %}"><a
+								href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a></li>
 						{% endfor %}
 					</ul>
 				</li>
@@ -85,16 +88,55 @@
 
 	<footer class="content">
 		<p>
-			<b>&copy; {{ site.time | date: '%Y' }} HyperLap2D</b> • This wiki aims to be a starting point for basic knowledge of HyperLap2D Engine. You can contribute to improve this documentation, feel free to <a href="https://github.com/rednblackgames/HyperLap2D-Wiki" target="_blank">fork it</a> and submit your changes.
+			<b>&copy; {{ site.time | date: '%Y' }} HyperLap2D</b> • This wiki aims to be a starting point for basic
+			knowledge of HyperLap2D Engine. You can contribute to improve this documentation, feel free to <a
+				href="https://github.com/rednblackgames/HyperLap2D-Wiki" target="_blank">fork it</a> and submit your
+			changes.
 		</p>
 		<p style="padding-top: 10px;">
-			<b>If you need additional help, join our community on <a href="https://discord.gg/p69rPNF" target="_blank">Discord</a>!</b>
+			<b>If you need additional help, join our community on <a href="https://discord.gg/p69rPNF"
+					target="_blank">Discord</a>!</b>
 		</p>
 	</footer>
 
 	<script>
 		document.getElementById("open-nav").addEventListener("click", function () {
 			document.body.classList.toggle("nav-open");
+		});
+	</script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const headings = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+			const svgIcon = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+    </svg>
+  `;
+
+			headings.forEach(heading => {
+				if (heading.id) {
+					const btn = document.createElement("button");
+					btn.className = "anchor-btn";
+					btn.innerHTML = svgIcon;
+					btn.ariaLabel = "Copy link";
+
+					btn.addEventListener("click", function () {
+						const fullUrl = window.location.origin + window.location.pathname + "#" + heading.id;
+						navigator.clipboard.writeText(fullUrl).then(() => {
+							btn.classList.add("show-tooltip");
+							setTimeout(() => {
+								btn.classList.remove("show-tooltip");
+							}, 2000);
+						}).catch(err => {
+							console.error('Copy error: ', err);
+						});
+					});
+
+					heading.appendChild(btn);
+				}
+			});
 		});
 	</script>
 	<script src="{{ site.baseurl }}/scripts/copy-code.js"></script>
