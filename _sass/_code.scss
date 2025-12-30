@@ -33,7 +33,7 @@ blockquote > code,
 li > code,
 p > code {
 	padding: 4px 6px;
-	white-space: nowrap;
+	word-break: break-word;
 }
 
 pre.highlight {
