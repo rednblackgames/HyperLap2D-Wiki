@@ -12,7 +12,7 @@ show_full_navigation: true
 logo: /siteicon.png
 description: HyperLap2D Wiki Website.
 author:
-  name:
+  name: "Red & Black Games"
   email:
   twitter: rednblackgames
 social:
@@ -43,6 +43,14 @@ collections:
     title: Documentation
     permalink: /:path/
     output: true
+  changes:
+      title: Changelog
+      sort_by: date
+
+feed:
+  collections:
+    changes:
+      path: "/changes.xml"
 
 defaults:
   -
@@ -67,7 +75,7 @@ defaults:
   -
     scope:
       path: ""
-      type: "posts"
+      type: "changes"
     values:
       _comments:
         type: Marks the impact of this release
