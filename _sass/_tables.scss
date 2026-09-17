@@ -1,21 +1,32 @@
 table {
 	width: 100%;
 	margin-bottom: 1.75em;
+	border-collapse: collapse;
+	border: 1px solid var(--c-line);
+	border-radius: $radius-box;
+	overflow: hidden;
+	font-size: 0.95em;
+}
+
+thead tr {
+	background: var(--c-surface-2);
 }
 
 tr {
-	border-bottom: 1px solid #EEE;
+	border-bottom: 1px solid var(--c-line);
 }
 
-tr:nth-child(even) {
-	background: #fcfcfc;
+tbody tr:nth-child(even) {
+	background: var(--c-zebra);
 }
 
 td, th {
-	padding: 8px;
+	padding: 8px 12px;
 	text-align: left;
+	vertical-align: top;
 }
 
 th {
-	padding-bottom: 4px;
+	font-weight: 600;
+	color: var(--c-ink-strong);
 }

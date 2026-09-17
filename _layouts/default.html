@@ -9,9 +9,22 @@
 	{% seo %}
 	{% feed_meta %}
 
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet"
-		href="//fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700">
+		href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..700&family=Figtree:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap">
 	<link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">
+	{% if page.path contains '.md' %}<link rel="alternate" type="text/markdown" href="https://raw.githubusercontent.com/rednblackgames/HyperLap2D-Wiki/master/{{ page.path | uri_escape }}">{% endif %}
+	<link rel="help" href="{{ site.baseurl }}/llms.txt">
+	<meta name="theme-color" content="#252526" media="(prefers-color-scheme: dark)">
+	<meta name="theme-color" content="#F3F1EA" media="(prefers-color-scheme: light)">
+	<script>
+		(function () {
+			var t = localStorage.getItem('theme');
+			var dark = t === 'dark' || (t !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+			if (dark) document.documentElement.classList.add('dark');
+		})();
+	</script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 	<link rel="apple-touch-icon" href="{{ site.baseurl }}/apple-touch-icon.png">
 	<link rel="icon" type="image/png" href="{{ site.baseurl }}/touch-icon.png" sizes="192x192">
@@ -32,10 +45,29 @@
 <body>
 	<header>
 		<h1>
-			<a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/images/emblem.svg" width="40" height="40"
-					alt="{{ site.title }} logo"></a>
-			{{ site.title }}
-			<button type="button" class="open-nav" id="open-nav"></button>
+			<a href="{{ site.baseurl }}/" aria-label="{{ site.title }} home">
+				<svg class="mark" viewBox="0 0 104.44 92.228" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+					<g transform="translate(-46.948 -84.383)" fill="currentColor">
+						<path d="m102.11 169.41 8.3752 7.2045s4.5929-1.3508 1.1707-10.086c-1.531 3.4221-9.5459 2.8818-9.5459 2.8818z"/>
+						<path d="m79.61 158.01c-0.33652 1.1899 7.7948 4.9835 12.07 5.9344 7.6144 1.6938 20.612 1.1418 20.711-9.2665-12.068 8.6454-32.78 3.3321-32.78 3.3321z"/>
+						<path d="m59.887 132.75s1.1858 24.639 39.809 19.116c15.32-2.1906 17.636-4.7727 21.069-6.418-45.568 5.4034-60.878-12.698-60.878-12.698z"/>
+						<path d="m151.2 136.71s-8.6093 4.7632-23.505 5.758c-14.651 0.97847-35.459-1.7708-51.076-6.5237-25.941-7.8949-40.229-34.48-20.338-48.585-12.134 18.231 11.977 37.292 35.539 43.225 31.252 7.8693 33.624 8.1968 59.38 6.1255z"/>
+						<path d="m69.253 114.37s-24.765-21.343 0.8105-26.657c25.576-5.3133 58.807 25.216 60.157 28.548-3.9295-2.5174-21.064-12.906-33.288-16.346-39.444-11.098-27.68 14.455-27.68 14.455z"/>
+						<path d="m130.85 134.81s36.799 0.90181 11.887-24.405c-2.7619-2.8058-13.839-10.939-26.329-16.606-13.167-5.9746-27.704-9.4199-27.704-9.4199s26.311 9.4191 41.504 22.289c13.061 11.064 19.437 22.499 0.64215 28.142z"/>
+					</g>
+				</svg>
+			</a>
+			<a class="wordmark" href="{{ site.baseurl }}/">HyperLap2D</a>
+			<span class="wiki-tag">Wiki</span>
+			<span class="header-actions">
+				<button type="button" class="icon-btn theme-toggle" id="theme-toggle" aria-label="Switch theme" title="Switch theme">
+					<svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+					<svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+				</button>
+				<button type="button" class="icon-btn open-nav" id="open-nav" aria-label="Toggle navigation">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+				</button>
+			</span>
 		</h1>
 
 		<form action="{{ site.baseurl }}/search/" method="get">
@@ -78,8 +110,23 @@
 
 	<section class="main">
 		<div class="page-header">
-			<h2>{% if page.category %}{{ page.category }}{% endif %}</h2>
-			<h3>{{ page.title }}</h3>
+			<div class="page-header-text">
+				<h2>{% if page.category %}{{ page.category }}{% endif %}</h2>
+				<h3>{{ page.title }}</h3>
+			</div>
+			{% if page.path contains '.md' %}
+			{% assign raw_url = page.path | uri_escape | prepend: 'https://raw.githubusercontent.com/rednblackgames/HyperLap2D-Wiki/master/' %}
+			<div class="page-actions" data-raw="{{ raw_url }}">
+				<button type="button" class="btn btn-sm" id="copy-md" title="Copy this page as Markdown">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+					<span>Copy as Markdown</span>
+				</button>
+				<a class="btn btn-sm" href="{{ raw_url }}" target="_blank" rel="noopener noreferrer" title="Open the Markdown source">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15h6M9 11h2"/></svg>
+					<span>View Markdown</span>
+				</a>
+			</div>
+			{% endif %}
 		</div>
 		<article class="content">
 			{{ content }}
@@ -88,7 +135,7 @@
 
 	<footer class="content">
 		<p>
-			<b>&copy; {{ site.time | date: '%Y' }} HyperLap2D</b> • This wiki aims to be a starting point for basic
+			<b>&copy; 2020 &ndash; {{ site.time | date: '%Y' }} Red &amp; Black Games</b> • This wiki aims to be a starting point for basic
 			knowledge of HyperLap2D Engine. You can contribute to improve this documentation, feel free to <a
 				href="https://github.com/rednblackgames/HyperLap2D-Wiki" target="_blank">fork it</a> and submit your
 			changes.
@@ -97,11 +144,33 @@
 			<b>If you need additional help, join our community on <a href="https://discord.gg/p69rPNF"
 					target="_blank">Discord</a>!</b>
 		</p>
+		<p class="footer-actions">
+			<a class="btn" href="https://hyperlap2d.rednblack.games/">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+				Back to HyperLap2D
+			</a>
+			<a class="btn" href="https://github.com/rednblackgames/HyperLap2D-Wiki" target="_blank" rel="noopener noreferrer">
+				<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+				Edit this wiki
+			</a>
+		</p>
 	</footer>
 
 	<script>
 		document.getElementById("open-nav").addEventListener("click", function () {
 			document.body.classList.toggle("nav-open");
+		});
+		document.getElementById("theme-toggle").addEventListener("click", function () {
+			var root = document.documentElement;
+			var dark = !root.classList.contains("dark");
+			root.classList.toggle("dark", dark);
+			var system = window.matchMedia("(prefers-color-scheme: dark)").matches;
+			// Choosing the system's own value again means "follow the system".
+			if (dark === system) localStorage.removeItem("theme");
+			else localStorage.setItem("theme", dark ? "dark" : "light");
+		});
+		window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
+			if (!localStorage.getItem("theme")) document.documentElement.classList.toggle("dark", e.matches);
 		});
 	</script>
 	<script>
@@ -140,6 +209,29 @@
 		});
 	</script>
 	<script src="{{ site.baseurl }}/scripts/copy-code.js"></script>
+	<script>
+		(function () {
+			var btn = document.getElementById("copy-md");
+			if (!btn) return;
+			var label = btn.querySelector("span");
+			btn.addEventListener("click", function () {
+				var url = btn.parentElement.getAttribute("data-raw");
+				label.textContent = "Copying";
+				fetch(url).then(function (r) { return r.text(); }).then(function (md) {
+					// Drop the front matter block; keep the title as a heading
+					var body = md.replace(/^---[\s\S]*?---\s*/, "");
+					var title = document.querySelector(".page-header h3").textContent.trim();
+					return navigator.clipboard.writeText("# " + title + "\n\n" + body);
+				}).then(function () {
+					label.textContent = "Copied";
+				}).catch(function () {
+					label.textContent = "Copy failed";
+				}).then(function () {
+					setTimeout(function () { label.textContent = "Copy as Markdown"; }, 2000);
+				});
+			});
+		})();
+	</script>
 </body>
 
 </html>

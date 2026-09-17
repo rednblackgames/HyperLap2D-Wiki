@@ -1,0 +1,21 @@
+---
+layout: null
+permalink: /llms.txt
+sitemap: false
+---
+# HyperLap2D Wiki
+
+> Documentation for HyperLap2D, a free and open source 2D game editor with a libGDX runtime. Website: https://hyperlap2d.rednblack.games/
+
+Every page below is also available as raw Markdown at the linked URL. The rendered site lives at {{ site.url }}{{ site.baseurl }}/.
+
+{% assign grouped = site.docs | group_by: 'category' %}{% for group in grouped %}
+## {{ group.name }}
+{% assign items = group.items | sort: 'order' %}{% for item in items %}
+- [{{ item.title }}](https://raw.githubusercontent.com/rednblackgames/HyperLap2D-Wiki/master/{{ item.path | uri_escape }}): rendered at {{ site.url }}{{ site.baseurl }}{{ item.url }}{% endfor %}
+{% endfor %}
+## Other
+
+- [Home](https://raw.githubusercontent.com/rednblackgames/HyperLap2D-Wiki/master/index.md): rendered at {{ site.url }}{{ site.baseurl }}/
+- Changelog: {{ site.url }}{{ site.baseurl }}/changelog/ (RSS at {{ site.url }}{{ site.baseurl }}/changes.xml)
+- Source repository: https://github.com/rednblackgames/HyperLap2D-Wiki

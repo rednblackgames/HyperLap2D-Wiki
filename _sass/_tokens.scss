@@ -1,0 +1,63 @@
+/*
+  Theme tokens, shared with the main site. Dark is the HyperLap2D editor skin;
+  light uses the brand navy on the paper tone of the splash sketch.
+*/
+:root {
+	--c-bg: #F3F1EA;
+	--c-bg-2: #EBE8DF;
+	--c-surface: #FFFFFF;
+	--c-surface-2: #F7F5EF;
+	--c-surface-3: #ECE9E0;
+	--c-line: #DAD6CB;
+	--c-line-strong: #B9B4A6;
+	--c-ink: #0F172A;
+	--c-ink-2: #5B6270;
+	--c-ink-3: #8A8F99;
+	--c-ink-strong: #0F172A;
+	--c-accent: #1686BD;
+	--c-accent-hover: #1BA1E2;
+	--c-accent-ink: #126B97;
+	--c-accent-soft: rgba(27, 161, 226, 0.12);
+	--c-focus: #4979EB;
+	--c-ok: #1F9D55;
+	--c-warn: #C62828;
+	--c-editor: #262626;
+	--c-code-inline-bg: rgba(15, 23, 42, 0.07);
+	--c-link-underline: rgba(18, 107, 151, 0.4);
+	--c-zebra: rgba(236, 233, 224, 0.5);
+	--shadow-pop: 0 2px 10px rgba(15, 23, 42, 0.12);
+	color-scheme: light;
+}
+
+html.dark {
+	--c-bg: #252526;
+	--c-bg-2: #2B2D2E;
+	--c-surface: #2E2E2E;
+	--c-surface-2: #383A3B;
+	--c-surface-3: #404040;
+	--c-line: #3E3E42;
+	--c-line-strong: #5B5B5B;
+	--c-ink: #DEDEDE;
+	--c-ink-2: #A6A6A6;
+	--c-ink-3: #737373;
+	--c-ink-strong: #FFFFFF;
+	--c-accent: #1BA1E2;
+	--c-accent-hover: #35B0EC;
+	--c-accent-ink: #35B0EC;
+	--c-accent-soft: rgba(27, 161, 226, 0.16);
+	--c-focus: #4979EB;
+	--c-ok: #2ECC71;
+	--c-warn: #E53935;
+	--c-editor: #262626;
+	--c-code-inline-bg: rgba(255, 255, 255, 0.08);
+	--c-link-underline: rgba(53, 176, 236, 0.4);
+	--c-zebra: rgba(56, 58, 59, 0.5);
+	--shadow-pop: 0 2px 10px rgba(0, 0, 0, 0.30);
+	color-scheme: dark;
+}
+
+$font-sans: "Figtree", "Nunito Sans", system-ui, sans-serif;
+$font-display: "Bricolage Grotesque", "Figtree", system-ui, sans-serif;
+$font-mono: "Fira Code", "DejaVu Sans Mono", ui-monospace, monospace;
+$radius-ctl: 4px;
+$radius-box: 8px;
